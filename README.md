@@ -1,10 +1,11 @@
 # First attempt to create UI
+![изображение](https://user-images.githubusercontent.com/33752831/182548745-0bed1b0b-0dea-4d8b-ac3f-4212556a9223.png)
+![изображение](https://user-images.githubusercontent.com/33752831/182548469-6978735f-5706-4eb4-9708-65dd59c02d0a.png)
+![изображение](https://user-images.githubusercontent.com/33752831/182548891-0d6dc1b6-0907-4383-be93-cf044babe29e.png)
 
 
 
-https://user-images.githubusercontent.com/33752831/182134454-b088b7d4-0127-4bfd-9824-bffe84fc1801.mp4
 
-![Screenshot_7](https://user-images.githubusercontent.com/33752831/182134950-7d3f62d3-4dcb-4695-825d-8cd6a18dc045.png)
-![Screenshot_8](https://user-images.githubusercontent.com/33752831/182134954-fb068cdc-dd2c-4ac3-a83c-17a9c423000c.png)
-![Screenshot_9](https://user-images.githubusercontent.com/33752831/182134959-58e25fc0-7097-4ac4-b63c-a2d2ef1095ab.png)
-![Screenshot_10](https://user-images.githubusercontent.com/33752831/182134971-e0d6a349-ceeb-4107-a679-76c7e0b28f10.png)
+
+https://user-images.githubusercontent.com/33752831/182549410-66077e2c-45f0-4fb0-8b3d-ddfd25772880.mp4
+
