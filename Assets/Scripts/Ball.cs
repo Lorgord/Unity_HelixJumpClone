@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Ball : MonoBehaviour
 {   
+    private ScoreManager scoreManager;
     internal CameraTrigger CurrentSector;
     public Bounce bounce;
     public GameResult GameResult;
@@ -14,36 +16,39 @@ public class Ball : MonoBehaviour
 
     private Material _collisionMaterial;
 
-    public int score;
-    private bool check = false;
-
-    private void OnCollisionEnter(Collision collision)
+    private int _score;
+    public int Score
     {
-
-        MaterialCheck(collision.gameObject);
-
-        if (_collisionMaterial == DeathMaterial)
-        {
-            bounce.BounceStop();
-            GameResult.GameOver(score);
-            check = true;
-        }
-        
-        if (_collisionMaterial == FinishMaterial)
-        {
-            bounce.BounceStop();
-            GameResult.PlayerWin(score);
-            check = true;
-        }
-        if (!check)
-        {
-            bounce.BallBounce();
-        }
-
+        get { return _score; }
+        set { _score = value; }
     }
 
-    private void MaterialCheck(GameObject gameObject)
+    private void Start()
+    { 
+        scoreManager = FindObjectOfType<ScoreManager>();
+    }
+    private void Update()
     {
-        _collisionMaterial = gameObject.GetComponent<Renderer>().sharedMaterial;
+        scoreManager.Score = _score;
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        MaterialCheck(collision.gameObject.GetComponent<Renderer>().sharedMaterial);
+
+        if (_collisionMaterial == FinishMaterial)
+        {
+            GameResult.GameStop(true);
+        }
+        else if (_collisionMaterial == DeathMaterial)
+        {
+            GameResult.GameStop(false);
+        }
+        bounce.BallBounce(); 
+        
+    }
+
+    private void MaterialCheck(Material material)
+    {
+        _collisionMaterial = material;
     }
 }

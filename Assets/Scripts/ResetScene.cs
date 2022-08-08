@@ -5,16 +5,13 @@ using UnityEngine.UI;
 
 public class ResetScene : MonoBehaviour
 {
-    
+    private Ball Ball;
+    public GameResult gameResult;
     void Awake()
     {
         Button button = GetComponent<Button>();
-        button.onClick.AddListener(Restart);
+        button.onClick.AddListener(gameResult.GameRestart);
     }
 
-    void Restart()
-    {
-        Application.LoadLevel(Application.loadedLevel);
-    }
    
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraTrigger : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class CameraTrigger : MonoBehaviour
     {
         if (other.TryGetComponent(out Ball ball))
         {
-            ball.score += 1;
+            ball.Score ++;
             ball.CurrentSector = this;
         }
     }

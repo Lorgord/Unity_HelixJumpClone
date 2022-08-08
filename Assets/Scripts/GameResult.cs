@@ -1,22 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class GameResult : MonoBehaviour
 {
+    public CameraMovement CameraMovement;
     public TowerRotation TowerRotation;
+    public Canvas GUI;
+    public Canvas PlayerWinUI;
+    public Canvas PlayerLoseUI;
+    public Ball Ball;
 
-    public void GameOver(int score)
+    private void Awake()
     {
-        Debug.Log("GAMEOVER" + score);
+        PlayerLoseUI.GetComponent<Canvas>();
+        PlayerWinUI.GetComponent<Canvas>();
+        GUI.GetComponent<Canvas>();
+    }
+    public void GameStop(bool finishMaterial)
+    {
+        if (finishMaterial) { PlayerWinUI.GetComponent<Canvas>().enabled = true; }
 
+        else if (!finishMaterial) { PlayerLoseUI.GetComponent<Canvas>().enabled = true; }
+
+        GUI.GetComponent<Canvas>().enabled = false;
         TowerRotation.enabled = false;
+        Ball.bounce.BounceSwitch(true);
     }
 
-    public void PlayerWin(int score)
+    public void GameRestart()
     {
-        Debug.Log("PlayerWin" + score);
-        TowerRotation.enabled = false;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }

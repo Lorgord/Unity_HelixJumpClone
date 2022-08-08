@@ -11,9 +11,8 @@ public class Bounce : MonoBehaviour
     {
         rb.AddForce(0, BounceSpeed, 0, ForceMode.Impulse);
     }
-    public void BounceStop()
+    public void BounceSwitch(bool bounceSwitch)
     {
-        rb.velocity = Vector3.zero;
-        Debug.Log("STOP PLS");
+        rb.isKinematic = bounceSwitch;
     }
 }

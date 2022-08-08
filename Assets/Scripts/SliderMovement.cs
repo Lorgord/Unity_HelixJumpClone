@@ -6,37 +6,28 @@ using UnityEngine.UI;
 public class SliderMovement : MonoBehaviour
 {
     private Vector3 vector;
-    private GameObject ball;
-    private GameObject basement;
-    private Slider slider;
+    public Ball Ball;
+    public GameObject basement;
+    public Slider slider;
 
-    private Color _blue = new Color32(59, 204, 255, 255);
-    private Color _orange = new Color32(247, 147, 30, 255);
+    //private Color _blue = new Color32(59, 204, 255, 255);
+    //private Color _purple = new Color32(117, 51, 212, 255);        dynamic colour change
 
-    private void Awake()
-    {
-        ball = GameObject.Find("Ball");
-        basement = GameObject.Find("Base");
-        slider = gameObject.GetComponent<Slider>();
-
-    }
     void Start()
     {
-        vector = basement.transform.position - ball.transform.position;
+        vector = basement.transform.position - Ball.transform.position;
         slider.maxValue = vector.magnitude;
-
-        Debug.Log(vector.magnitude);
-        Debug.Log(slider.maxValue);
     }
 
     void Update()
     {
-        vector = basement.transform.position - ball.transform.position;
-        slider.value = vector.magnitude - 0.5f;
-        slider.image.color = Color.Lerp(_blue, _orange, vector.magnitude / 10);
+        vector = basement.transform.position - Ball.transform.position;
+        slider.value = vector.magnitude - 1.5f;
+        /*slider.image.color = Color.Lerp(_blue, _purple, vector.magnitude);
         if (slider.value <= 0)
         {
-            //slider.image.color = _blue;
+            slider.image.color = _blue;
         }
+        */
     }
 }
